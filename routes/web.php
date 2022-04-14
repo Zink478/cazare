@@ -22,6 +22,7 @@ Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'conta
 
 Route::group([
     'prefix' => 'admin',
+    'middleware' => ['admin']
 ], function() {
   Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('adminhome');
   Route::get('/cazare', [\App\Http\Controllers\Admin\CazareController::class, 'index'])->name('admincazare');
