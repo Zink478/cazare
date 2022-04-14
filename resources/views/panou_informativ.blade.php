@@ -24,13 +24,16 @@
                                 </thead>
                                 <tbody>
                                 @foreach($students as $student)
-                                <tr>
-                                    <td>{{$student->name}}</td>
-                                    <td>{{$student->surname}}</td>
-                                    <td>{{$student->phone}}</td>
-                                    <td>{{$student->group}}</td>
-                                    <td>CAZAT/LISTA ASTEPTARE/RESPINS</td>
-                                </tr>
+                                    <tr>
+                                        <td>{{$student->name}}</td>
+                                        <td>{{$student->surname}}</td>
+                                        <td>{{$student->phone}}</td>
+                                        <td>{{$student->group}}</td>
+                                        @if($student->roomNumber) <td><span style='color:green'><strong>CAZAT</strong></span></td>
+                                        @else
+                                            <td><span style='color:red'><strong>RESPINS/IN LISTA DE ASTEPTARE</strong></span></td>
+                                        @endif
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>

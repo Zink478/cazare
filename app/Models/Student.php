@@ -21,4 +21,13 @@ class Student extends Model
         return $this->hasMany(Record::class, 'IDNP', 'IDNP');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     *
+     */
+
+    public function getHasRoomAttribute()
+    {
+        return $this->belongsTo(Record::class, 'IDNP', 'IDNP');
+    }
 }
