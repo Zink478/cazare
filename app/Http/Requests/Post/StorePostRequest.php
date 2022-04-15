@@ -29,6 +29,7 @@ class StorePostRequest extends FormRequest
             'surname' => ['required', 'string', 'max:20'],
             'phone' => ['required', 'string', 'max:15'],
             'group' => ['required', 'string', 'max:8'],
+            'user_id' => ['nullable', 'exists:users,id']
         ];
     }
 }

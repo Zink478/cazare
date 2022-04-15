@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->role === static::ROLE_USER;
     }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
 }

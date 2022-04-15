@@ -29,6 +29,22 @@
                         <div>
                             <h1>Aici se vor introduce studentii <br></h1>
 
+                            <form action="" method="get">
+                                <div class="form-group">
+                                    <select name="group"  class="">
+                                        <option value="" selected disabled hidden> Alege aici</option>
+                                        @foreach($groups as $group)
+
+                                            <option value="{{$group}}">{{$group}}</option>
+                                            @endforeach
+                                    </select>
+                                    <label for="search"> Cautare dupa nume: </label>
+                                    <input type="text" class="" name="name" placeholder="Nume"></div>
+
+                                <button type="submit" class="btn btn-search">Cauta</button>
+                                <a class="btn btn-warning" href="{{route('adminhome')}}">RESET</a>
+                            </form>
+
                             <table class="table table-hover w-auto centertable" style="border-style: solid;">
                                 <thead class="thead-dark">
                                 <tr>
@@ -61,6 +77,10 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a class="btn btn-info" href="{{route('student.export')}}"> EXPORT </a>
+                            <a class="btn btn-danger" href="{{route('student.import')}}"> IMPORT DIRECT PATH FROM CONTROLLER</a>
+                            <a class="btn btn-dark" href="{{route('student.upload')}}"> UPLOAD IMPORT FILE</a>
+
                             <h3 style="text-align: center;">Introducerea datelor:</h3>
 
                             @if(isset($editStudent))
@@ -72,6 +92,11 @@
                                     Nume <input type="text" name="surname" value="{{$editStudent->surname}}"><br>
                                     Contact <input type="text" name="phone" value="{{$editStudent->phone}}"><br>
                                     Grupa student <input type="text" name="group" value="{{$editStudent->group}}"><br>
+                                    Utilizator <select name="user_id">
+                                        @foreach($users as $u)
+                                            <option value="{{$u->id}}" @if($editStudent->user_id === $u->id) selected @endif>{{$u->name}}</option>
+                                        @endforeach
+                                    </select>
 
                                     <div>
                                         <button type="submit" name="save_student" class="btn btn-success">Salveaza</button>
@@ -90,7 +115,11 @@
                                     Nume <input type="text" name="surname"><br>
                                     Contact <input type="text" name="phone"><br>
                                     Grupa student <input type="text" name="group"><br>
-
+                                    Utilizator <select name="user_id">
+                                        @foreach($users as $u)
+                                            <option value="{{$u->id}}">{{$u->name}}</option>
+                                        @endforeach
+                                    </select>
                                     <div>
                                         <button type="submit" name="save_student" class="btn btn-success">Adauga</button>
                                     </div>

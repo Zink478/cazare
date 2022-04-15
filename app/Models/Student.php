@@ -10,7 +10,7 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = [
-        'IDNP', 'name', 'surname', 'phone', 'group'
+        'IDNP', 'name', 'surname', 'phone', 'group', 'user_id'
     ];
 
     /**
@@ -21,11 +21,14 @@ class Student extends Model
         return $this->hasMany(Record::class, 'IDNP', 'IDNP');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     *
      */
-
     public function getHasRoomAttribute()
     {
         return $this->belongsTo(Record::class, 'IDNP', 'IDNP');

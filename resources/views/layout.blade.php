@@ -63,6 +63,29 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
                 <li class="nav-item active"> <a class="nav-link" href="{{route('adminhome')}}">Admin</a> </li>
+
+                @if(auth()->guest())
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">Register</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}">Login</a> </li>
+
+                    @else
+                    <li>
+                        <form action="{{url('/logout')}}" method="post">
+                            {!! csrf_field() !!}
+                            <button type="submit">Log Out</button>
+                        </form>
+                    </li>
+                    <li><a class="nav-link" href="{{route('profile')}}">Profile</a></li>
+                @endif
+{{--                @if(auth()->user())--}}
+{{--                <li>--}}
+{{--                    <form action="{{url('/logout')}}" method="post">--}}
+{{--                        {!! csrf_field() !!}--}}
+{{--                        <button type="submit">logout</button>--}}
+{{--                    </form>--}}
+{{--                </li>--}}
+{{--                    <li><a class="nav-link" href="{{route('profile')}}">Profile</a></li>--}}
+{{--                    @endif--}}
             </ul>
         </div>
     </nav>

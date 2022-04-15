@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
+Route::get('/home', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
+
 //Route::post('/check', [\App\Http\Controllers\MainController::class, 'check']);
 Route::get('/cazare', [\App\Http\Controllers\CazareController::class, 'cazare' ])->name('cazare');
 Route::get('/panou_informativ', [\App\Http\Controllers\PanouInformativController::class, 'panou_informativ'])->name('panou_informativ');
@@ -35,6 +37,23 @@ Route::group([
 
     Route::get('/cazare/{id}', [\App\Http\Controllers\Admin\RecordController::class, 'delete'])->name('record.delete');
     Route::post('/cazare/store', [\App\Http\Controllers\Admin\RecordController::class, 'store'])->name('record.store');
+    Route::get('/export', [\App\Http\Controllers\Admin\StudentController::class, 'export'])->name('student.export');
+    Route::get('/import', [\App\Http\Controllers\Admin\StudentController::class, 'import'])->name('student.import');
+    Route::get('/upload', [\App\Http\Controllers\Admin\FileUploadController::class, 'index'])->name('student.upload');
+    Route::post('/fileupload', [\App\Http\Controllers\Admin\StudentController::class, 'importFile'])->name('student.fileupload');
+
+
+});
+
+Route::group([
+    'prefix' => 'profile',
+    'middleware' => ['auth']
+], function()
+{
+    Route::get('/', [\App\Http\Controllers\StudentProfileController::class,'index'])->name('profile');
+    Route::post('/saveprofile', [\App\Http\Controllers\StudentProfileController::class, 'save'])->name('profile.save');
+    Route::post('/updateprofile', [\App\Http\Controllers\StudentProfileController::class, 'update'])->name('profile.update');
+
 });
 
 
@@ -45,4 +64,3 @@ Route::group([
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
