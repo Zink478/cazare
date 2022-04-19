@@ -42,6 +42,8 @@ Route::group([
     Route::get('/upload', [\App\Http\Controllers\Admin\FileUploadController::class, 'index'])->name('student.upload');
     Route::post('/fileupload', [\App\Http\Controllers\Admin\StudentController::class, 'importFile'])->name('student.fileupload');
 
+   Route::get('/camere', [\App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admincamere');
+   Route::get('/camere/{id}', [\App\Http\Controllers\Admin\RoomController::class, 'info'])->name('admininfo');
 
 });
 

@@ -18,9 +18,9 @@ class CazareController extends Controller
             'roomType3' => $roomType3
         ]);
     }
-    public function max($roomNumber)
-    {
-        $records = Record::where('roomNumber', $roomNumber)->count();
-        dd($records);
-    }
+//    public function max($roomNumber)
+//    {
+//        $records = Record::where('roomNumber', $roomNumber)->count();
+//        dd($records);
+//    }
 }

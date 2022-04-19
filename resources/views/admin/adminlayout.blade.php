@@ -59,6 +59,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="active nav-item"> <a class="nav-link" href="{{route('home')}}">Acasă</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admincamere') }}">Camere</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admincazare') }}">Cazare</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>

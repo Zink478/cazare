@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div>
                             <h1>Aici se vor introduce studentii <br></h1>
-
+                            @if(!isset($search))
                             <form action="" method="get">
                                 <div class="form-group">
                                     <select name="group"  class="">
@@ -44,7 +44,7 @@
                                 <button type="submit" class="btn btn-search">Cauta</button>
                                 <a class="btn btn-warning" href="{{route('adminhome')}}">RESET</a>
                             </form>
-
+                            @endif
                             <table class="table table-hover w-auto centertable" style="border-style: solid;">
                                 <thead class="thead-dark">
                                 <tr>
@@ -94,7 +94,7 @@
                                     Grupa student <input type="text" name="group" value="{{$editStudent->group}}"><br>
                                     Utilizator <select name="user_id">
                                         @foreach($users as $u)
-                                            <option value="{{$u->id}}" @if($editStudent->user_id === $u->id) selected @endif>{{$u->name}}</option>
+                                            <option value="{{$u->id}}" @if($editStudent->user_id === $u->id) selected @endif>{{$u->email}}</option>
                                         @endforeach
                                     </select>
 
@@ -117,7 +117,7 @@
                                     Grupa student <input type="text" name="group"><br>
                                     Utilizator <select name="user_id">
                                         @foreach($users as $u)
-                                            <option value="{{$u->id}}">{{$u->name}}</option>
+                                            <option value="{{$u->id}}">{{$u->email}}</option>
                                         @endforeach
                                     </select>
                                     <div>
@@ -128,16 +128,14 @@
 
                                 </div>
                                 <br>
-                            </form>
+
                         @endif
                             <hr>
                             <br>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
     </section>
 
 @endsection
