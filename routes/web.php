@@ -29,6 +29,7 @@ Route::group([
   Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('adminhome');
   Route::get('/cazare', [\App\Http\Controllers\Admin\CazareController::class, 'index'])->name('admincazare');
     //Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AdminController::class, 'delete']);
+
     Route::post('/student', [\App\Http\Controllers\Admin\StudentController::class, 'store'])->name('student.store');
 //    Route::get('/delete/{id}', [\App\Http\Controllers\Admin\StudentController::class, 'delete'])->name('student.delete');
     Route::get('/edit/{student}', [\App\Http\Controllers\Admin\StudentController::class, 'edit'])->name('student.edit');
@@ -37,6 +38,7 @@ Route::group([
 
     Route::get('/cazare/{id}', [\App\Http\Controllers\Admin\RecordController::class, 'delete'])->name('record.delete');
     Route::post('/cazare/store', [\App\Http\Controllers\Admin\RecordController::class, 'store'])->name('record.store');
+
     Route::get('/export', [\App\Http\Controllers\Admin\StudentController::class, 'export'])->name('student.export');
     Route::get('/import', [\App\Http\Controllers\Admin\StudentController::class, 'import'])->name('student.import');
     Route::get('/upload', [\App\Http\Controllers\Admin\FileUploadController::class, 'index'])->name('student.upload');
@@ -44,6 +46,14 @@ Route::group([
 
    Route::get('/camere', [\App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admincamere');
    Route::get('/camere/{id}', [\App\Http\Controllers\Admin\RoomController::class, 'info'])->name('admininfo');
+   Route::get('/camere/kickstudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'delete'])->name('student.kick');
+
+   Route::get('/cereri', [\App\Http\Controllers\Admin\ApplicationController::class, 'index'])->name('admincereri');
+
+   Route::get('/acceptcerere/{IDNP}', [\App\Http\Controllers\Admin\ApplicationController::class, 'accept'])->name('accept.app');
+   Route::get('/declinecerere/{IDNP}', [\App\Http\Controllers\Admin\ApplicationController::class, 'decline'])->name('decline.app');
+//   Route::post('/camere/updatestudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'update'])->name('record.update');
+
 
 });
 
@@ -53,16 +63,35 @@ Route::group([
 ], function()
 {
     Route::get('/', [\App\Http\Controllers\StudentProfileController::class,'index'])->name('profile');
-    Route::post('/saveprofile', [\App\Http\Controllers\StudentProfileController::class, 'save'])->name('profile.save');
+    Route::post('/saveprofile/{user_id}', [\App\Http\Controllers\StudentProfileController::class, 'save'])->name('profile.save');
     Route::post('/updateprofile', [\App\Http\Controllers\StudentProfileController::class, 'update'])->name('profile.update');
 
 });
-
-
+Route::group([
+    'middleware' => ['auth']
+], function()
+{
+    Route::get('/cazare/{roomNumber}', [\App\Http\Controllers\ApplicationController::class, 'index'])->name('application');
+    Route::post('/cazare/savecerere', [\App\Http\Controllers\ApplicationController::class, 'save'])->name('application.save');
+    Route::get('/cazare/deletecerere/{IDNP}',[\App\Http\Controllers\ApplicationController::class, 'delete'])->name('application.delete');
+});
 //Route::get('/user/{id}/{name}', function ($id, $name) {
 //    return 'ID: '. $id. ' Name:'. $name;
 //});
 
+
+//AAAAAAAAAAAAPPPPPPPPPPPPPPPPIIIIIIIIIIIIIIIIIIIIII
+
+Route::get('/students',[\App\Http\Controllers\API\StudentController::class, 'index']);
+Route::get('/students/{idnp}', [\App\Http\Controllers\API\StudentController::class, 'show']);
+Route::post('/students', [\App\Http\Controllers\API\StudentController::class, 'store']);
+Route::put('/students/{idnp}', [\App\Http\Controllers\API\StudentController::class, 'update']);
+Route::delete('/students/{idnp}', [\App\Http\Controllers\API\StudentController::class, 'destroy']);
+
+Route::get('/allrooms', [\App\Http\Controllers\API\RoomController::class, 'index']);
+
+
+Route::post('/saveavatar/', [\App\Http\Controllers\StudentProfileController::class, 'saveavatar'])->name('save.avatar');
 
 Auth::routes();
 

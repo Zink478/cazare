@@ -17,15 +17,32 @@
                                     <h5>Nr pers cazate : <strong><span style='color:#ff0000'>{{$room->recordsCount}}</span></strong></h5>
                                 </div>
                             </div>
-{{--                            <form action="{{route}}" method="post"></form>--}}
+
                             @foreach($students as $student)
                                 <div class="student text-center border-success d-inline d-flex justify-content-around">
                                     <h3>IDNP: {{$student->IDNP}}</h3>
                                     <h4>Nume: {{$student->surname}}</h4>
                                     <h4>Prenume: {{$student->name}}</h4>
                                     <h5></h5>
+                                    <a class="btn btn-danger mt-2 mb-2" href="{{route('student.kick', ['IDNP' => $student->IDNP])}}">ALUNGĂ</a>
+{{--                                    <form method="post" action="{{route('record.update', ['roomNumber' => $student->roomNumber])}}">--}}
+{{--                                        {{csrf_field()}}--}}
+{{--                                    <select name="roomNumber" id="roomNumber">--}}
+{{--                                                @foreach($rooms as $room)--}}
+{{--                                            <option value="{{$room->roomNumber}}">{{$room->roomNumber}}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                    </form>--}}
+{{--                                    </select>--}}
+{{--                                    <button class="btn btn-info mt-2 mb-2" type="submit">MUTĂ</button>--}}
+{{--                                    </form>--}}
                                 </div>
+
+                                @if($students === NULL)
+                                    <h1> Momentan, aici nu sunt cazati studenti!</h1>
+                                @endif
+
                             @endforeach
+
                             <hr>
                             <br>
                         </div>

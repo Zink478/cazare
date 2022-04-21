@@ -94,7 +94,15 @@
                                     Grupa student <input type="text" name="group" value="{{$editStudent->group}}"><br>
                                     Utilizator <select name="user_id">
                                         @foreach($users as $u)
-                                            <option value="{{$u->id}}" @if($editStudent->user_id === $u->id) selected @endif>{{$u->email}}</option>
+                                            @if($editStudent->user_id === $u->id)
+                                                <option value="{{$u->id}}" >Utilizatorul este setat deja!</option>
+                                            @endif
+                                                @if($editStudent->user_id != $u->id)
+                                                    <option value="{{$u->id}}" >{{$u->email}}</option>
+                                                @endif
+
+
+
                                         @endforeach
                                     </select>
 

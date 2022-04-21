@@ -58,12 +58,20 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="active nav-item"> <a class="nav-link" href="{{route('home')}}">Acasă</a> </li>
+                <li class="active nav-item"> <a class="nav-link" href="{{route('adminhome')}}">Acasă</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admincamere') }}">Camere</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admincazare') }}">Cazare</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admincereri') }}">Cereri</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
-                <li class="nav-item active"> <a class="nav-link" href="admin_secret/index.html">Admin</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{{route('adminhome')}}">Admin</a> </li>
+                <li>
+                    <form action="{{url('/logout')}}" method="post">
+                        {!! csrf_field() !!}
+                        <button type="submit">Log Out</button>
+                    </form>
+                </li>
+                <li><a class="nav-link" href="{{route('profile')}}">Profile</a></li>
             </ul>
         </div>
     </nav>

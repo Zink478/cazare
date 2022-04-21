@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -28,7 +29,8 @@ class AdminController extends Controller
         $students = $students->get();
 
         $edited = \request()->query('edited');
-        $users = User::where('role', User::ROLE_USER)->get();
+        $users = DB::table('students')->join('users', 'users.id', '=', 'students.user_id', 'right outer')
+            ->get();
 
         $groups = Student::whereNotNull('group')->distinct('group')->pluck('group')->toArray();
         return view('admin.adminhome', ['students' => $students, 'edited' => $edited, 'users' => $users,

@@ -32,7 +32,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
         $search = 1;
-        $users = User::where('role', User::ROLE_USER)->get();
+//        $users = User::where('role', User::ROLE_USER)->get(); - INITIAL
 
 //        $users = DB::table('students')->whereNot(function ($query)
 //        {
@@ -45,13 +45,19 @@ class StudentController extends Controller
 //        $users = User::has('id')->get(); !!!!!!!!!!!!!!!!!!!!!!!!!! <<<<<<<<<<<<<<< WHEREDOESNT HAVE (LAST)
 //                      + FORM POST ROOMCARDINFO!
 //        dd($users);
+
+        $users = DB::table('students')->join('users', 'users.id', '=', 'students.user_id', 'right outer')
+            ->get();
+
         return view('admin.adminhome', ['students' => $students, 'editStudent' => $student, 'users' => $users,
             'search' => $search]);
     }
 
     public function update(StorePostRequest $request, Student $student)
     {
+
         $student->update($request->validated());
+
 
         return redirect(route('adminhome', ['edited' => true]) );
     }

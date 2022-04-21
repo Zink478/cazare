@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\StorePostRequestRecord;
 use App\Models\Room;
 use App\Models\Record;
 use Illuminate\Http\Request;
@@ -19,7 +21,7 @@ class RoomController extends Controller
         return view('admin.admincamere', [
             'roomType1' => $roomType1 ,
             'roomType2' => $roomType2 ,
-            'roomType3' => $roomType3
+            'roomType3' => $roomType3 ,
         ]);
     }
     public function info($id)
@@ -31,8 +33,26 @@ class RoomController extends Controller
         $students = Room::join('records', 'rooms.roomNumber' , '=', 'records.roomNumber')
             ->join('students', 'records.IDNP', '=', 'students.IDNP')
             ->where('records.roomNumber', $id)->get();
-        $room = Room::where('roomNumber', $id)->firstOrFail();
 
-        return view('admin.admin-roominfo', ['students' => $students, 'room' => $room]);
+//        dd($students);
+        $room = Room::where('roomNumber', $id)->firstOrFail();
+        $rooms = Room::all();
+
+        return view('admin.admin-roominfo', ['students' => $students, 'room' => $room ,'rooms' => $rooms]);
     }
+
+    public function delete($IDNP)
+    {
+        $record = Record::where('IDNP', $IDNP)->firstOrFail()->delete();
+
+        return redirect()->back()->with('success');
+    }
+
+//    public function update(StorePostRequestRecord $request, $IDNP)
+//    {
+//        $record = Record::find($IDNP)->get();
+//
+//
+//        return redirect()->back();
+//    }
 }

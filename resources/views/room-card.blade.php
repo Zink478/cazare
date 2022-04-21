@@ -6,5 +6,5 @@
         <h5>Etaj: <strong>{{$room->roomLocation}}</strong></h5>
         <h5>Nr pers cazate : <strong><span style='color:red'>{{$room->recordsCount}}</span></strong></h5>
     </div>
-
+    <a class="btn btn-primary mt-2 mb-2" href="{{route('application', ['roomNumber' => $room->roomNumber])}}">APLICĂ</a>
 </div>
