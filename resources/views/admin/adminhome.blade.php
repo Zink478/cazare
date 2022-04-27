@@ -80,7 +80,7 @@
                             <a class="btn btn-info" href="{{route('student.export')}}"> EXPORT </a>
                             <a class="btn btn-danger" href="{{route('student.import')}}"> IMPORT DIRECT PATH FROM CONTROLLER</a>
                             <a class="btn btn-dark" href="{{route('student.upload')}}"> UPLOAD IMPORT FILE</a>
-
+                            <a class="btn btn-secondary" href="{{route('student.pdf')}}"> PDF EXPORT </a>
                             <h3 style="text-align: center;">Introducerea datelor:</h3>
 
                             @if(isset($editStudent))

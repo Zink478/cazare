@@ -46,7 +46,8 @@ class StudentProfileController extends Controller
 
     public function save(StorePostRequest $request)
     {
-        if (auth()->user()->student) {
+//        dd($request);
+        if ((auth()->user()->student)) {
             $edited = 1;
             return redirect(route('profile', ['edited' => $edited]));
         }

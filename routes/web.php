@@ -39,11 +39,15 @@ Route::group([
     Route::get('/cazare/{id}', [\App\Http\Controllers\Admin\RecordController::class, 'delete'])->name('record.delete');
     Route::post('/cazare/store', [\App\Http\Controllers\Admin\RecordController::class, 'store'])->name('record.store');
 
+    ///////FISIERE
     Route::get('/export', [\App\Http\Controllers\Admin\StudentController::class, 'export'])->name('student.export');
     Route::get('/import', [\App\Http\Controllers\Admin\StudentController::class, 'import'])->name('student.import');
     Route::get('/upload', [\App\Http\Controllers\Admin\FileUploadController::class, 'index'])->name('student.upload');
     Route::post('/fileupload', [\App\Http\Controllers\Admin\StudentController::class, 'importFile'])->name('student.fileupload');
+    Route::get('/generatepdf', [\App\Http\Controllers\Admin\PDFController::class, 'index'])->name('student.pdf');
+    Route::get('/pdfexport', [\App\Http\Controllers\Admin\PDFController::class, 'export'])->name('student.pdfexport');
 
+    ///////////////////
    Route::get('/camere', [\App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admincamere');
    Route::get('/camere/{id}', [\App\Http\Controllers\Admin\RoomController::class, 'info'])->name('admininfo');
    Route::get('/camere/kickstudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'delete'])->name('student.kick');
@@ -54,6 +58,10 @@ Route::group([
    Route::get('/declinecerere/{IDNP}', [\App\Http\Controllers\Admin\ApplicationController::class, 'decline'])->name('decline.app');
 //   Route::post('/camere/updatestudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'update'])->name('record.update');
 
+    Route::get('notificari',[\App\Http\Controllers\Admin\NotificationController::class, 'index'])->name('notifications');
+    Route::get('notificari/sendemails', [\App\Http\Controllers\Admin\NotificationController::class, 'emailAll'])->name('email.push');
+//    Route::get('/sms', [\App\Http\Controllers\Admin\PhoneController::class, 'index'])->name('sms');
+    Route::post('/sms', [\App\Http\Controllers\Admin\PhoneController::class, 'send'])->name('sms.student');
 
 });
 

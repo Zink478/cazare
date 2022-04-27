@@ -63,6 +63,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admincazare') }}">Cazare</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admincereri') }}">Cereri</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('notifications') }}">Notificari</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
                 <li class="nav-item active"> <a class="nav-link" href="{{route('adminhome')}}">Admin</a> </li>
                 <li>

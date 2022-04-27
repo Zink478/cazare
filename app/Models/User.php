@@ -61,4 +61,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Student::class, 'id');
     }
+
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
+    }
+
 }
