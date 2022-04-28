@@ -17,7 +17,7 @@ class Room extends Model
      */
     public function records()
     {
-        return $this->hasMany(Record::class, 'roomNumber', 'roomNumber');
+        return $this->hasMany(Application::class, 'roomNumber', 'roomNumber');
     }
 
     public function getRecordsCountAttribute()

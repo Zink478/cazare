@@ -26,11 +26,21 @@ class Student extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function application()
+    {
+        return $this->belongsTo(Application::class, 'IDNP', 'IDNP');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function getHasRoomAttribute()
     {
         return $this->belongsTo(Record::class, 'IDNP', 'IDNP');
+    }
+
+    public function getIsBookedAttribute()
+    {
+        return $this->application ? $this->application->displayStatus : false;
     }
 }

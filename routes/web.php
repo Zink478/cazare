@@ -51,6 +51,7 @@ Route::group([
    Route::get('/camere', [\App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admincamere');
    Route::get('/camere/{id}', [\App\Http\Controllers\Admin\RoomController::class, 'info'])->name('admininfo');
    Route::get('/camere/kickstudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'delete'])->name('student.kick');
+   Route::get('/camere/movestudent/{IDNP}', [\App\Http\Controllers\Admin\RoomController::class, 'update'])->name('student.move');
 
    Route::get('/cereri', [\App\Http\Controllers\Admin\ApplicationController::class, 'index'])->name('admincereri');
 
@@ -82,6 +83,7 @@ Route::group([
     Route::get('/cazare/{roomNumber}', [\App\Http\Controllers\ApplicationController::class, 'index'])->name('application');
     Route::post('/cazare/savecerere', [\App\Http\Controllers\ApplicationController::class, 'save'])->name('application.save');
     Route::get('/cazare/deletecerere/{IDNP}',[\App\Http\Controllers\ApplicationController::class, 'delete'])->name('application.delete');
+    Route::get('/get-qr/{IDNP}', [\App\Http\Controllers\QRController::class, 'index'])->name('qr');
 });
 //Route::get('/user/{id}/{name}', function ($id, $name) {
 //    return 'ID: '. $id. ' Name:'. $name;
@@ -97,9 +99,15 @@ Route::put('/students/{idnp}', [\App\Http\Controllers\API\StudentController::cla
 Route::delete('/students/{idnp}', [\App\Http\Controllers\API\StudentController::class, 'destroy']);
 
 Route::get('/allrooms', [\App\Http\Controllers\API\RoomController::class, 'index']);
-
+////////////profil
 
 Route::post('/saveavatar/', [\App\Http\Controllers\StudentProfileController::class, 'saveavatar'])->name('save.avatar');
+
+
+//Route::get('/home123123', [App\Http\Controllers\HomeController::class, 'index'])->name('home123123')->middleware('2fa');
+//Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
+//Route::post('2fa', [App\Http\Controllers\TwoFAController::class, 'store'])->name('2fa.post');
+//Route::get('2fa/reset', [App\Http\Controllers\TwoFAController::class, 'resend'])->name('2fa.resend');
 
 Auth::routes();
 

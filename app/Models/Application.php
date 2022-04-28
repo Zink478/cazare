@@ -26,11 +26,11 @@ class Application extends Model
         switch($this->status)
         {
             case 0:
-                return 'In asteptare';
+                return 0;
             case 1:
-                return 'Acceptat!';
+                return 1;
             case 2:
-                return 'Cerere respinsa!';
+                return 2;
             default:
                 return 'n/a';
         }

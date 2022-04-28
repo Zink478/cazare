@@ -35,7 +35,18 @@
 {{--                                    </select>--}}
 {{--                                    <button class="btn btn-info mt-2 mb-2" type="submit">MUTĂ</button>--}}
 {{--                                    </form>--}}
+                                    <form method="get" action="{{route('student.move', ['IDNP' => $student->IDNP])}}">
+                                    <select class="form-select" name="selectedRoom">
+                                        @foreach($rooms as $room)
+                                        <option value="{{$room->roomNumber}}">
+                                            {{$room->roomNumber}}
+                                        </option>
+                                            @endforeach
+                                    </select>
+                                    <button type="submit" class="btn btn-success">MUTĂ</button>
+                                        </form>
                                 </div>
+
 
                                 @if($students === NULL)
                                     <h1> Momentan, aici nu sunt cazati studenti!</h1>

@@ -20,13 +20,14 @@ class ApplicationController extends Controller
         $room = Room::where('roomNumber', $roomNumber)->first();
         $student = Student::where('user_id', auth()->user()->id)->first();
         if($student) {
-            $appExists = Application::where('IDNP', $student->IDNP)->where('status', 0)->first();
+            $appExists = Application::where('IDNP', $student->IDNP)->first();
+            $approved = Application::where('IDNP', $student->IDNP)->where('status', 1)->first();
         }
         else
         {
             $appExists = NULL;
         }
-        return view('roomapplication', ['room' => $room, 'student' => $student, 'appExists' => $appExists]);
+        return view('roomapplication', ['room' => $room, 'student' => $student, 'appExists' => $appExists ,'approved' => $approved]);
     }
 
     public function save(StorePostRequestApplication $request)

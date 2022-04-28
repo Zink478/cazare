@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Post\StorePostRequestRecord;
+use App\Models\Application;
 use App\Models\Room;
 use App\Models\Record;
 use Illuminate\Http\Request;
@@ -30,9 +31,10 @@ class RoomController extends Controller
 //            ->join('rooms', 'rooms.roomNumber' , '=', 'records.roomNumber')
 //            ->where('records.roomNumber', $id)->get();
 
-        $students = Room::join('records', 'rooms.roomNumber' , '=', 'records.roomNumber')
-            ->join('students', 'records.IDNP', '=', 'students.IDNP')
-            ->where('records.roomNumber', $id)->get();
+//        $students = Room::join('applications', 'rooms.roomNumber' , '=', 'applications.roomNumber')
+//            ->join('students', 'applications.IDNP', '=', 'students.IDNP')
+//            ->where('applications.roomNumber', $id)->get();
+            $students = Application::where('roomNumber', $id)->where('status', 1)->join('students', 'applications.IDNP', '=', 'students.IDNP')->get();
 
 //        dd($students);
         $room = Room::where('roomNumber', $id)->firstOrFail();
@@ -43,16 +45,18 @@ class RoomController extends Controller
 
     public function delete($IDNP)
     {
-        $record = Record::where('IDNP', $IDNP)->firstOrFail()->delete();
+        $record = Application::where('IDNP', $IDNP)->firstOrFail()->delete();
 
         return redirect()->back()->with('success');
     }
 
-//    public function update(StorePostRequestRecord $request, $IDNP)
-//    {
-//        $record = Record::find($IDNP)->get();
-//
-//
-//        return redirect()->back();
-//    }
+    public function update(Request $request, $IDNP)
+    {
+
+        $application = Application::where('IDNP', $IDNP)->first();
+        $application->roomNumber = $request->get('selectedRoom');
+        $application->save();
+
+        return redirect()->back();
+    }
 }

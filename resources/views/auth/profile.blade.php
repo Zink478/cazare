@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('main_content')
+    <div class="container">
     @if((auth()->user()->avatar) != NULL) <h1>DEJA AI AVATAR</h1>
     @if(isset($user->avatar))
         <img src="{{asset($user->avatar)}}" alt="">
@@ -56,5 +57,10 @@
             </div>
             <br>
         </form>
+
     @endif
+   <div class="container">
+       </div>
+   </div>
+    </div>
 @endsection

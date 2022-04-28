@@ -4,7 +4,12 @@
         <h5 style='text-align: center;'>Camera nr : <strong>{{ $room->roomNumber }}</strong></h5>
         <h5>Pachetul : <strong>{{$room->displayName}}</strong></h5>
         <h5>Etaj: <strong>{{$room->roomLocation}}</strong></h5>
-        <h5>Nr pers cazate : <strong><span style='color:#ff0000'>{{$room->recordsCount}}</span></strong></h5>
+        <h5>Nr pers cazate :
+            @if($room->recordsCount >= $room->roomMax)
+                <strong><span style='color:red'>{{$room->recordsCount}}/{{$room->roomMax}}</span></strong>
+            @else
+                <strong><span style='color:green'>{{$room->recordsCount}}/{{$room->roomMax}}</span></strong>
+            @endif</h5>
     </div>
     <a class="btn btn-info" href="{{route('admininfo', ['id'=>$room->roomNumber])}}">INFO</a>
 

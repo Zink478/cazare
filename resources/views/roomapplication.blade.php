@@ -41,10 +41,12 @@
                                     <button type="submit" class="btn btn-primary">Depune cerere</button>
                                 </div>
                                 </form>
+
                                 </div>
                                     @endif
                             @endif
                             @if($appExists != NULL)
+                                @if(!isset($approved))
                                 <h1> Deja ai depus cerere! Asteapta sa fie procesata!</h1>
                                 <div class="d-inline-block">
                                         <label class="label label-info"> IDNP </label>
@@ -58,6 +60,13 @@
 
                                 </div>
                                 <a class="btn btn-danger" href="{{route('application.delete', ['IDNP' => $student->IDNP])}}">Sterge cererea</a>
+                                @else
+                                    <h1>Felicitari! Ai fost cazat</h1>
+{{--                                    <div class="md-col-2"><a class="btn btn-info" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Click for QR</a>--}}
+                                {{QrCode::size(150)->generate($student->IDNP)}}
+
+                                    <div class="md-col-2"><a class="btn btn-success" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Descarca QR code</a>
+                                @endif
                             @endif
 
                         </div>
