@@ -35,6 +35,11 @@ class Application extends Model
                 return 'n/a';
         }
     }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'IDNP', 'IDNP');
+    }
 //
 //    public function getStudentsAttendingAttribute()
 //    {

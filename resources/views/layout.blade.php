@@ -42,7 +42,8 @@
                     <div class="email"> <a href="#">Email : admin.camine@utm.com</a> </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                    <div class="icon"> <i> <a href="https://www.facebook.com/UTMoldova"><img src="icon/facebook.png"></a></i> <i> <a href="https://twitter.com/utm_md"><img src="icon/Twitter.png"></a></i> </div>
+                    <div class="icon"> <i> <a href="https://www.facebook.com/UTMoldova"><img src="{{asset('icon/facebook.png')}}"></a></i> <i>
+                            <a href="https://twitter.com/utm_md"><img src="{{asset('icon/Twitter.png')}}"></a></i> </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                     <div class="contact"> <a href="#">Contact :  (+373)068-45-25</a> </div>
@@ -61,6 +62,7 @@
                 <li class="active nav-item"> <a class="nav-link" href="{{route('home')}}">Acasă</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('cazare') }}">Cazare</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{{route('payments')}}">Taxa de cazare</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
                 <li class="nav-item active"> <a class="nav-link" href="{{route('adminhome')}}">Admin</a> </li>
 

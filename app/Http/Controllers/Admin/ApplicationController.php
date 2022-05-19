@@ -25,6 +25,8 @@ class ApplicationController extends Controller
         $user = Student::where('IDNP', $IDNP)->get('user_id');
         $user_id = $user->toArray();
         $email = User::where('id', $user_id)->get('email')->toArray();
+//        $email = User::where('id', $user_id)->get('email')->first()->toArray(); asa mai bine, $email[0]['email] => $email['email']
+//        dd($email);
 
         Mail::send('emails.applicationResponse', $application[0],
         function($message) use ($email)

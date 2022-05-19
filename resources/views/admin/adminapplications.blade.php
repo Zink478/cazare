@@ -20,6 +20,7 @@
                 <div>
                     <div class="col-md-12">
             <h1> Administrarea cererilor</h1>
+                        <h2> *!</h2>
                         <table class="table table-striped table-dark">
                             <thead>
                             <tr>
@@ -49,6 +50,12 @@
                                             <span style="color: red">RESPINS</span>
                                             @break
                                     @endswitch</td>
+                                    <td>@if(isset($app->payment))
+                                            <span style="color: green">Achitat!</span>
+                                        @else
+                                            <span style="color: red">Neachitat!</span>
+                                    @endif</td>
+
                                     <td>
                                     <a class="btn btn-success" href="{{route('accept.app', ['IDNP' => $app->IDNP])}}">APROBĂ</a></td>
                                     <td>
@@ -62,6 +69,7 @@
                 <br><br>
             </div>
         </div>
+        <footer><h3>* - Verifica chitanta manual!</h3></footer>
     </section>
 
 @endsection

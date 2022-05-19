@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'IDNP', 'status', 'path'
+    ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'IDNP', 'IDNP');
+    }
 }

@@ -47,14 +47,17 @@ class StudentProfileController extends Controller
     public function save(StorePostRequest $request)
     {
 //        dd($request);
-        if ((auth()->user()->student)) {
-            $edited = 1;
-            return redirect(route('profile', ['edited' => $edited]));
-        }
+//        $test = Student::where('user_id', auth()->user())->get();
+//        if ((auth()->user()->student)) {
+//            $edited = 1;
+//            return redirect(route('profile', ['edited' => $edited]));
+//        }
+
+
 
         $data = $request->validated();
 
-//
+
 //        $created = auth()->user()->student()->create($data);
 
         $created = Student::create(
@@ -72,16 +75,16 @@ class StudentProfileController extends Controller
 
     }
 
-    public function saveavatar(StorePostRequestAvatar $request)
-    {
-
-        $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->store('public/images');
-
-        $user = User::where('id', auth()->user()->id)->firstOrFail();
-        $user->avatar = $path;
-        $user->save();
-
-        return redirect()->back();
-    }
+//    public function saveavatar(StorePostRequestAvatar $request)
+//    {
+//
+//        $name = $request->file('image')->getClientOriginalName();
+//        $path = $request->file('image')->store('public/images');
+//
+//        $user = User::where('id', auth()->user()->id)->firstOrFail();
+//        $user->avatar = $path;
+//        $user->save();
+//
+//        return redirect()->back();
+//    }
 }

@@ -84,6 +84,9 @@ Route::group([
     Route::post('/cazare/savecerere', [\App\Http\Controllers\ApplicationController::class, 'save'])->name('application.save');
     Route::get('/cazare/deletecerere/{IDNP}',[\App\Http\Controllers\ApplicationController::class, 'delete'])->name('application.delete');
     Route::get('/get-qr/{IDNP}', [\App\Http\Controllers\QRController::class, 'index'])->name('qr');
+    Route::get('/payments', [\App\Http\Controllers\PaymentController::class, 'index'])->name('payments');
+    Route::get('/sendinvoice', [\App\Http\Controllers\PaymentController::class, 'send'])->name('payment.send');
+    Route::post('/getinvoice', [\App\Http\Controllers\PaymentController::class, 'get'])->name('payment.get');
 });
 //Route::get('/user/{id}/{name}', function ($id, $name) {
 //    return 'ID: '. $id. ' Name:'. $name;

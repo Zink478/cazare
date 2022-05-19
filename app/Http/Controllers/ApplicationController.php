@@ -19,6 +19,8 @@ class ApplicationController extends Controller
 //        $room = DB::table('rooms')->where('roomNumber', $roomNumber)->first();
         $room = Room::where('roomNumber', $roomNumber)->first();
         $student = Student::where('user_id', auth()->user()->id)->first();
+        $appExists = NULL;
+        $approved = NULL;
         if($student) {
             $appExists = Application::where('IDNP', $student->IDNP)->first();
             $approved = Application::where('IDNP', $student->IDNP)->where('status', 1)->first();
