@@ -6,7 +6,7 @@
                 <div>
                     <div class="col-md-12">
                         <div>
-                            <h1>Se va efectua cazarea după pachetul ales de dvs</h1>
+                            <h2>Se va efectua cazarea după pachetul ales de dvs</h2>
                             <p>In cazul în care camera este colorată cu roşu, înseamnă că s-a atins nr maxim de persoane în odaie. <br></p>
                             <hr>
 
@@ -19,7 +19,7 @@
 
                             <hr>
                             <br>
-                            <h3>Pachetul : standart</h3>
+                            <h3>Pachetul : standard</h3>
                             <br>
 
                             @foreach($roomType2 as $room)

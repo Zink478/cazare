@@ -1,0 +1,103 @@
+.dark-layout .form-control[type=file]::-webkit-file-upload-button {
+  background-color: #283046;
+}
+
+.dark-layout .form-control[type=file]::file-selector-button {
+  background-color: #283046;
+}
+
+.b-contract {
+  color: #000;
+  padding: 3rem 0 7rem;
+}
+.b-contract-header {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.b-contract-header-text {
+  text-align: right;
+  flex: 1 50%;
+  font-size: 14px;
+}
+.b-contract-header-logo {
+  flex: auto 50%;
+}
+.b-contract-logo {
+  max-width: 100%;
+  width: 300px;
+}
+.b-contract-initials {
+  text-align: center;
+}
+.b-contract-initials p {
+  display: inline-block;
+  text-align: left;
+}
+.b-contract-input {
+  border: none;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+  display: block;
+  width: 250px;
+}
+.b-contract-input:hover, .b-contract-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.b-contract-input.inline {
+  display: inline;
+  height: 25px;
+}
+.b-contract-input.inline-sm {
+  width: 100px;
+}
+.b-contract-input.inline-md {
+  width: 150px;
+}
+.b-contract-input.inline-30 {
+  height: 30px;
+}
+.b-contract-input.inline-block {
+  display: block;
+  width: 100%;
+}
+.b-contract-input.error {
+  border-bottom-color: red;
+}
+.b-contract .t-underline {
+  text-decoration: underline;
+}
+.b-contract .list-style-alpha {
+  list-style-type: lower-alpha;
+}
+.b-contract p {
+  margin-bottom: 1.5rem;
+}
+.b-contract-red {
+  color: red;
+}
+.b-contract .b-underline {
+  border-bottom: 1px solid #000;
+}
+
+.b-signature-canvas {
+  display: block;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+.b-signature-canvas.is-invalid {
+  border-color: red;
+}
+
+.b-contacts-title {
+  text-align: center;
+  padding-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+}
+.b-contacts-title span {
+  color: #1abc9c;
+}

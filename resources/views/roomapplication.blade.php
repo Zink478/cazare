@@ -6,7 +6,7 @@
                 <div>
                     <div class="col-md-12">
                         <div>
-                            <h1>Aici poti depune cerere de cazare in camera curenta!<br></h1>
+                            <h1>Aici poți depune cerere de cazare în camera curentă!<br></h1>
                             <div class="camera" style='width: 309px; display:inline-block;'>
 
                                 <div style='border: 1px solid #555;' class="rounded">
@@ -31,7 +31,7 @@
                                 <input type="text" value="{{$student->name}}" disabled />
                                     <label class="label label-info"> Nume </label>
                                 <input type="text" value="{{$student->surname}}" disabled>
-                                    <label class="label label-info"> Numarul camerei </label>
+                                    <label class="label label-info"> Numărul camerei </label>
                                     <input type="text" name="roomNumber" value="" />
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="checkBox" id="flexRadioDefault1">
@@ -47,7 +47,7 @@
                             @endif
                             @if($appExists != NULL)
                                 @if(!isset($approved))
-                                <h1> Deja ai depus cerere! Asteapta sa fie procesata!</h1>
+                                <h1> Deja ai depus cerere! Așteaptă să fie procesată!</h1>
                                 <div class="d-inline-block">
                                         <label class="label label-info"> IDNP </label>
                                         <input type="text" name="IDNP" value="{{$student->IDNP}}" disabled/>
@@ -55,17 +55,33 @@
                                         <input type="text" value="{{$student->name}}" disabled />
                                         <label class="label label-info"> Nume </label>
                                         <input type="text" value="{{$student->surname}}" disabled>
-                                        <label class="label label-info"> Numarul camerei </label>
+                                        <label class="label label-info"> Numărul camerei </label>
                                         <input type="text" name="roomNumber" value="{{$room->roomNumber}}" disabled/>
 
                                 </div>
-                                <a class="btn btn-danger" href="{{route('application.delete', ['IDNP' => $student->IDNP])}}">Sterge cererea</a>
+                                <a class="btn btn-danger" href="{{route('application.delete', ['IDNP' => $student->IDNP])}}">Șterge cererea</a>
                                 @else
-                                    <h1>Felicitari! Ai fost cazat</h1>
+                                    <div class="container" id="app">
+                                        <div class="card">
+                                            <div class="card-header">Chats</div>
+                                            <div class="card-body">
+                                                <chat-messages :messages="messages" ></chat-messages>
+                                            </div>
+                                            <div class="card-footer">
+                                                <chat-form v-on:messagesent="addMessage" :user="{{ auth()->user()->id }}"></chat-form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @if($room->roomNumber == $approved->roomNumber)
+                                    <h1>Felicitări! Ai fost cazat</h1>
 {{--                                    <div class="md-col-2"><a class="btn btn-info" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Click for QR</a>--}}
-                                {{QrCode::size(150)->generate($student->IDNP)}}
 
-                                    <div class="md-col-2"><a class="btn btn-success" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Descarca QR code</a>
+                                    {{QrCode::size(150)->generate($student->IDNP)}}
+
+                                    <div class="md-col-2"><a class="btn btn-success" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Descarcă QR code</a>
+                                        @else
+                                            <h3>Ești cazat în camera Nr. {{$approved->roomNumber}}</h3>
+                                            @endif
                                 @endif
                             @endif
 

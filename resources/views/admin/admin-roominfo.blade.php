@@ -7,7 +7,7 @@
                 <div>
 
                         <div>
-                            <h1>Aici puteti interactiona cu camera si studentii cazati in ea<br></h1>
+                            <h1>Aici puteți interacționa cu camera și studenții cazați în ea<br></h1>
 
                             <div class="camera d-block align-content-center">
                                 <div style='border: 1px solid #555;'>

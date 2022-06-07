@@ -56,19 +56,17 @@
                     <div class="three-box">
                         <figure><img src="images/standart.png" alt="img"/></figure>
                         <div class="pachete_comoditati"> <span style="font-size: xx-large;">***</span>
-                            <h3>Standart</h3>
+                            <h3>Standard</h3>
                             <ul>
                                 <li>+ 2 colegi în cameră</li>
                                 <li>+ Căldură/pat/o masă de studii</li>
                                 <li>+ wifi</li>
                                 <li>+ Baie pe hol</li>
                                 <li>+ Fibra optica</li>
-                                <li>+ Reparatie euro</li>
                                 <li>+ Biblioteca cu carţi de studiu</li>
                                 <li>- Parter</li>
                                 <li>- Izolată fonic</li>
                                 <li>- Frigider/microunda</li>
-                                <li>- Loc de parcare</li>
                             </ul>
                         </div>
                         <a class="read-more" href="panou_informativ.php">Detalii</a> </div>

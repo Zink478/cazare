@@ -6,7 +6,7 @@
                 <div>
                     <div class="col-md-12">
                         <div >
-                            <h1>Aici veţi putea vizualiza lista locatarilor căminului, în caz că nu vă găsiţi în lista de jos, probabil nu aţi fost inclus în listă din anumite motive sau sunteţi exmatriculat <br></h1>
+                            <h3>Aici veţi putea vizualiza lista locatarilor căminului, în caz că nu vă găsiţi în lista de jos, probabil nu aţi fost inclus în listă din anumite motive sau sunteţi exmatriculat <br></h3>
                             <p>De reţinut ! <br>
                                 persoanele care vor să solicite cămin, să verifice disponibilitatea camerelor de camin facând <a href="cazare.php">Click aici</a> este nevoie să luaţi legătura cu răspunzătorii de cazare a caminului UTM. <br></p>
 

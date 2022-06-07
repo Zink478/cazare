@@ -29,7 +29,7 @@ class NotificationController extends Controller
     {
         $students = Student::whereNotNull('user_id')->get('user_id');
         $count = Student::whereNotNull('user_id')->get('user_id')->count(); // nr de studenti cu user_id => deci cu email
-        $emails = [];
+        $emails = []; // initializare, lista cu toate emailurile
 //        foreach($students as $student)
 //        {
 //            $user_id = $student->user_id;
@@ -47,7 +47,7 @@ class NotificationController extends Controller
         {
             $user_id = $student->user_id;
             $user = User::where('id', $user_id)->get('email')->toArray();
-            array_push($emails, $user);
+            array_push($emails, $user); // lista cu toate emailurile
         }
 //        for (i=0; i<=)
 

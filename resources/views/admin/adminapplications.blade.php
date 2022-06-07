@@ -41,7 +41,7 @@
                                     <td>{{$app->roomNumber}}</td>
                                     <td>@switch($app->status)
                                             @case(0)
-                                                <span style="color: silver">IN ASTEPTARE</span>
+                                                <span style="color: silver">ÎN AȘTEPTARE</span>
                                             @break
                                             @case(1)
                                             <span style="color: green">APROBAT</span>
@@ -69,7 +69,7 @@
                 <br><br>
             </div>
         </div>
-        <footer><h3>* - Verifica chitanta manual!</h3></footer>
+        <footer><h3>* - Verifică chitanța manual în storage/app/public/payments/PrenumeNume.xyz!</h3></footer>
     </section>
 
 @endsection

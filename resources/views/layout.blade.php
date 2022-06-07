@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
-    <title>Administrarea caminelor - UTM</title>
+    <title>Administrarea căminelor - UTM</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -52,18 +52,18 @@
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href={{route('home')}}>Caminul 1 UTM</a>
+        <a class="navbar-brand" style="font-size: 30px" href={{route('home')}}>Căminul 1 UTM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" style="font-size: 20px">
                 <li class="active nav-item"> <a class="nav-link" href="{{route('home')}}">Acasă</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('cazare') }}">Cazare</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{{ route('cazare') }}">Cazare</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{{ route('panou_informativ') }}">Panou informativ</a> </li>
                 <li class="nav-item active"> <a class="nav-link" href="{{route('payments')}}">Taxa de cazare</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{{ route('contacts') }}">Contactează-ne</a> </li>
                 <li class="nav-item active"> <a class="nav-link" href="{{route('adminhome')}}">Admin</a> </li>
 
                 @if(auth()->guest())
@@ -77,7 +77,7 @@
                             <button type="submit">Log Out</button>
                         </form>
                     </li>
-                    <li><a class="nav-link" href="{{route('profile')}}">Profile</a></li>
+                    <li><a class="nav-link" href="{{route('profile')}}">Profil</a></li>
                 @endif
 {{--                @if(auth()->user())--}}
 {{--                <li>--}}
@@ -102,6 +102,7 @@
     </div>
 </footer>
 
+    <script src="{{mix('js/app.js')}}"></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
@@ -111,6 +112,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+
 </body>
 </html>
 

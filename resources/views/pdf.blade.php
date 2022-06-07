@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
  <div class="col-md-12">
-     <a class="btn btn-danger" href="{{route('student.pdfexport')}}"> CLICK PENTRU A OBTINE FISIER PDF</a>
+     <a class="btn btn-danger" href="{{route('student.pdfexport')}}"> CLICK PENTRU A DESCĂRCA FIȘIERUL PDF</a>
 <table class="table table-striped">
     <thead>
     <th>IDNP</th>

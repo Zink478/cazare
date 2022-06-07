@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Events\MessageSent;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
+//Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 Route::get('/home', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 
 //Route::post('/check', [\App\Http\Controllers\MainController::class, 'check']);
@@ -113,4 +114,8 @@ Route::post('/saveavatar/', [\App\Http\Controllers\StudentProfileController::cla
 //Route::get('2fa/reset', [App\Http\Controllers\TwoFAController::class, 'resend'])->name('2fa.resend');
 
 Auth::routes();
+
+Route::get('/profiletop', [App\Http\Controllers\ChatsController::class, 'index']);
+Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 

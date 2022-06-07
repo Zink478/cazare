@@ -20,7 +20,6 @@
                 <div>
                     <div class="col-md-12">
                         <div>
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolore ducimus error excepturi ipsum minus, non possimus! Blanditiis ex expedita iure natus nesciunt, nobis perferendis possimus sit suscipit tempore vel!</h4>
                             <h2>Aici poti descarca avizul de plata si incarca chitanta!</h2>
                             @if(isset($student) && ($student->status == 0))
                             <a class="btn btn-info" href="{{route('payment.send')}}">Click pentru a primi avizul de plata</a>

@@ -19,7 +19,7 @@
             <div class="row">
                 <div>
                     <div class="col-md-4">
-                        <h1> Trimite notificari </h1>
+                        <h1> Trimite notificări </h1>
 
                         <table class="table table-striped">
                             <tr>
@@ -33,7 +33,7 @@
                                 @endforeach
 
                         </table>
-                        <a class="btn btn-info" href="{{route('email.push')}}"> Trimite e-mail catre toti</a>
+                        <a class="btn btn-info" href="{{route('email.push')}}"> Trimite e-mail către toți</a>
                     </div>
                 </div>
                 <div class="col-md-4">

@@ -2,6 +2,24 @@
 
 @section('main_content')
     <div class="container">
+        <a href="{{ url('/profiletop') }}">Chat</a>
+
+{{-- ----------        CHAT ---------       --}}
+{{--        <div class="container" id="app">--}}
+{{--            <div class="card">--}}
+{{--                <div class="card-header">Chats</div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <chat-messages :messages="messages" ></chat-messages>--}}
+{{--                </div>--}}
+{{--                <div class="card-footer">--}}
+{{--                    <chat-form v-on:messagesent="addMessage" :user="{{ auth()->user()->id }}"></chat-form>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--       -----------------    CHAT         --------------             --}}
+
+{{--   -------------------     AVATAR ---------- --}}
 {{--    @if((auth()->user()->avatar) != NULL) <h1>DEJA AI AVATAR</h1>--}}
 {{--    @if(isset($user->avatar))--}}
 {{--        <img src="{{asset($user->avatar)}}" alt="">--}}
@@ -26,19 +44,22 @@
 {{--    </div>--}}
 {{--    </form>--}}
 {{--   @endif--}}
+
+{{-- --------------------   AVATAR ---------    --}}
+
     @if(isset($profile))
 
     <form method="post" action="{{route('profile.update', [ 'student' => $profile->id ])}}" style="text-align: center">
         {{csrf_field()}}
 
-        IDNP <input type="text" name="IDNP" value="{{ $profile->IDNP }}"><br>
+        IDNP <input type="text" name="IDNP" value="{{ $profile->IDNP }}" disabled><br>
         Prenume <input type="text" name="name" value="{{$profile->name}}" disabled><br>
         Nume <input type="text" name="surname" value="{{$profile->surname}}" disabled><br>
         Contact <input type="text" name="phone" value="{{$profile->phone}}"><br>
         Grupa student <input type="text" name="group" value="{{$profile->group}}" disabled><br>
 
         <div>
-            <button type="submit" name="save_student" class="btn btn-success">Salveaza</button>
+            <button type="submit" name="save_student" class="btn btn-success">Salvează</button>
         </div>
         <br>
     </form>
@@ -53,7 +74,7 @@
             Grupa student <input type="text" name="group"><br>
 
             <div>
-                <button type="submit" name="save_student" class="btn btn-success">Salveaza</button>
+                <button type="submit" name="save_student" class="btn btn-success">Salvează</button>
             </div>
             <br>
         </form>

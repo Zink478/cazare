@@ -14,6 +14,7 @@ class ApplicationController extends Controller
     public function index()
     {
         $applications = Application::all();
+//        dd($applications);
         return view('admin.adminapplications', ['applications' => $applications]);
     }
 

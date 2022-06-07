@@ -27,7 +27,7 @@
                 <div>
                     <div class="col-md-12">
                         <div>
-                            <h1>Aici se vor introduce studentii <br></h1>
+                            <h1>Aici pot fi introduse manual datele studenților<br></h1>
                             @if(!isset($search))
                             <form action="" method="get">
                                 <div class="form-group">
@@ -38,7 +38,7 @@
                                             <option value="{{$group}}">{{$group}}</option>
                                             @endforeach
                                     </select>
-                                    <label for="search"> Cautare dupa nume: </label>
+                                    <label for="search"> Căutare după nume: </label>
                                     <input type="text" class="" name="name" placeholder="Nume"></div>
 
                                 <button type="submit" class="btn btn-search">Cauta</button>
@@ -65,11 +65,11 @@
                                     <td>{{$student->phone}}</td>
                                     <td>{{$student->group}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{route('student.edit', ['student' => $student->id])}}">Editeaza</a>
+                                        <a class="btn btn-info" href="{{route('student.edit', ['student' => $student->id])}}">Editează</a>
                                     </td>
 
                                     <td>
-                                        <a class="btn btn-danger"  href={{route('student.delete', ['id' => $student->id])}}>Sterge</a>
+                                        <a class="btn btn-danger"  href={{route('student.delete', ['id' => $student->id])}}>Șterge</a>
 
                                     </td>
 
@@ -78,7 +78,7 @@
                                 </tbody>
                             </table>
                             <a class="btn btn-info" href="{{route('student.export')}}"> EXPORT </a>
-                            <a class="btn btn-danger" href="{{route('student.import')}}"> IMPORT DIRECT PATH FROM CONTROLLER</a>
+                            <a class="btn btn-danger" href="{{route('student.import')}}"> IMPORT PATH FROM CONTROLLER(DEFAULT)</a>
                             <a class="btn btn-dark" href="{{route('student.upload')}}"> UPLOAD IMPORT FILE</a>
                             <a class="btn btn-secondary" href="{{route('student.pdf')}}"> PDF EXPORT </a>
                             <h3 style="text-align: center;">Introducerea datelor:</h3>
@@ -95,7 +95,7 @@
                                     Utilizator <select name="user_id">
                                         @foreach($users as $u)
                                             @if($editStudent->user_id === $u->id)
-                                                <option value="{{$u->id}}" >Utilizatorul este setat deja!</option>
+                                                <option value="{{$u->id}}" disabled >Utilizatorul este setat deja!</option>
                                             @endif
                                                 @if($editStudent->user_id != $u->id)
                                                     <option value="{{$u->id}}" >{{$u->email}}</option>
@@ -107,7 +107,7 @@
                                     </select>
 
                                     <div>
-                                        <button type="submit" name="save_student" class="btn btn-success">Salveaza</button>
+                                        <button type="submit" name="save_student" class="btn btn-success">Salvează</button>
                                     </div>
                                     <br>
                                 </form>
@@ -129,7 +129,7 @@
                                         @endforeach
                                     </select>
                                     <div>
-                                        <button type="submit" name="save_student" class="btn btn-success">Adauga</button>
+                                        <button type="submit" name="save_student" class="btn btn-success">Adaugă</button>
                                     </div>
                                     <br>
                                 </form>

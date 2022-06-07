@@ -22,7 +22,7 @@ class Room extends Model
 
     public function getRecordsCountAttribute()
     {
-        return $this->records()->count();
+        return $this->records()->where('status', '=', '1')->count();
     }
 
     public function getDisplayNameAttribute()
@@ -31,7 +31,7 @@ class Room extends Model
             case 1:
                 return 'minim necesar';
             case 2:
-                return 'standart';
+                return 'standard';
             case 3:
                 return 'superior';
             default:
