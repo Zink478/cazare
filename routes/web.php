@@ -14,7 +14,7 @@ use App\Events\MessageSent;
 |
 */
 
-//Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
+Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 Route::get('/home', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 
 //Route::post('/check', [\App\Http\Controllers\MainController::class, 'check']);
@@ -116,6 +116,6 @@ Route::post('/saveavatar/', [\App\Http\Controllers\StudentProfileController::cla
 Auth::routes();
 
 Route::get('/profiletop', [App\Http\Controllers\ChatsController::class, 'index']);
-Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+//Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
-
+Route::get('/messages', [\App\Http\Controllers\ChatsController::class, 'getMessages']);

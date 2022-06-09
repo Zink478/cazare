@@ -11,6 +11,7 @@
             placeholder="Type your message here..."
             v-model="newMessage"
 
+
         @keyup.enter="sendMessage"
         />
 

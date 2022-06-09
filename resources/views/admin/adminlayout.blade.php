@@ -30,9 +30,9 @@
 
 <body class="main-layout">
 
-<div class="loader_bg">
-    <div class="loader"><img src="{{asset('images/loading.gif')}}" alt="#" /></div>
-</div>
+{{--<div class="loader_bg">--}}
+{{--    <div class="loader"><img src="{{asset('images/loading.gif')}}" alt="#" /></div>--}}
+{{--</div>--}}
 
 <header>
 

@@ -24,7 +24,8 @@ class MessagePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => ['required']
+            'message' => ['required'],
+            'roomNumber' => ['required']
         ];
     }
 }

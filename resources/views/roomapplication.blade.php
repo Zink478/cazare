@@ -61,18 +61,19 @@
                                 </div>
                                 <a class="btn btn-danger" href="{{route('application.delete', ['IDNP' => $student->IDNP])}}">Șterge cererea</a>
                                 @else
-                                    <div class="container" id="app">
-                                        <div class="card">
-                                            <div class="card-header">Chats</div>
-                                            <div class="card-body">
-                                                <chat-messages :messages="messages" ></chat-messages>
-                                            </div>
-                                            <div class="card-footer">
-                                                <chat-form v-on:messagesent="addMessage" :user="{{ auth()->user()->id }}"></chat-form>
+
+                                @if($room->roomNumber == $approved->roomNumber)
+                                        <div class="container" id="app">
+                                            <div class="card">
+                                                <div class="card-header">Chats</div>
+                                                <div class="card-body">
+                                                    <chat-messages :messages="messages" ></chat-messages>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <chat-form v-on:messagesent="addMessage" :user="{{ auth()->user()->id }}"></chat-form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @if($room->roomNumber == $approved->roomNumber)
                                     <h1>Felicitări! Ai fost cazat</h1>
 {{--                                    <div class="md-col-2"><a class="btn btn-info" href="{{route('qr', ['IDNP' => $student->IDNP])}}">Click for QR</a>--}}
 

@@ -2,7 +2,7 @@
 
 @section('main_content')
     <div class="container">
-        <a href="{{ url('/profiletop') }}">Chat</a>
+{{--        <a href="{{ url('/profiletop') }}">Chat</a>--}}
 
 {{-- ----------        CHAT ---------       --}}
 {{--        <div class="container" id="app">--}}
@@ -52,7 +52,7 @@
     <form method="post" action="{{route('profile.update', [ 'student' => $profile->id ])}}" style="text-align: center">
         {{csrf_field()}}
 
-        IDNP <input type="text" name="IDNP" value="{{ $profile->IDNP }}" disabled><br>
+        <strong>IDNP</strong> <input type="text" name="IDNP" value="{{ $profile->IDNP }}" disabled><br>
         Prenume <input type="text" name="name" value="{{$profile->name}}" disabled><br>
         Nume <input type="text" name="surname" value="{{$profile->surname}}" disabled><br>
         Contact <input type="text" name="phone" value="{{$profile->phone}}"><br>
@@ -67,7 +67,7 @@
         <form method="post" action="{{route('profile.save', ['user_id' => auth()->user()->id])}}" style="text-align: center">
             {{csrf_field()}}
 
-            IDNP <input type="text" name="IDNP"><br>
+            <strong>IDNP</strong> <input type="text" name="IDNP"><br>
             Prenume <input type="text" name="name"><br>
             Nume <input type="text" name="surname"><br>
             Contact <input type="text" name="phone"><br>

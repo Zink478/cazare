@@ -20,7 +20,20 @@
                 <div>
                     <div class="col-md-12">
             <h1> Administrarea cererilor</h1>
-                        <h2> *!</h2>
+                        <h2> *!* - Verifică chitanța manual în storage/app/public/payments/PrenumeNume.xyz<!doctype html
+                            >
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport"
+                                      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                <title>Document</title>
+                            </head>
+                            <body>
+                            
+                            </body>
+                            </html></h2>
                         <table class="table table-striped table-dark">
                             <thead>
                             <tr>

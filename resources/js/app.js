@@ -7,6 +7,8 @@ import Vue           from 'vue'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from "bootstrap-vue";
 import VueChatScroll from "vue-chat-scroll/dist/vue-chat-scroll";
+import moment from 'moment';
+
 
 
 require('./bootstrap');
@@ -37,19 +39,27 @@ Vue.component('chat-form', require('./components/ChatForm.vue').default);
 const app = new Vue({
     el: '#app',
     data: {
-        messages: []
+        messages: [],
+        roomNumber: ''
     },
     //Upon initialisation, run fetchMessages().
     mounted() {
         this.fetchMessages();
+
     },
     methods: {
         fetchMessages() {
             //GET request to the messages route in our Laravel server to fetch all the messages
+            //////
+            //!!!!!!! get messages cu roomnumber =>> webroute roomnumber ==> ChatsController fetchmessages cu roomNumber
+            //////////
             axios.get('/messages').then(response => {
                 //Save the response in the messages array to display on the chat view
                 this.messages = response.data;
+                console.log(this.messages);
                 // console.log(response.data);
+                this.roomNumber = response.data[0].roomNumber;
+                // console.log(this.roomNumber);
             })
                 .catch(function(error) {
             });
@@ -57,26 +67,35 @@ const app = new Vue({
         //Receives the message that was emitted from the ChatForm Vue component
         addMessage(message) {
             //Pushes it to the messages array
-            this.messages.push(message);
+            message.roomNumber = this.roomNumber;
+
+            // this.messages += message;
+            // this.messages.push(message);
             window.csrfToken = document.querySelector('meta[name="csrf-token"]').content;
             //POST request to the messages route with the message data in order for our Laravel server to broadcast it.
-            axios.post('/messages', {message: message.message, user_id: message.user, _token: csrfToken}).then(response => {
+            axios.post('/messages', {message: message.message, user_id: message.user, roomNumber: message.roomNumber, _token: csrfToken}).then(response => {
                 // console.log(response.data);
-                // console.log('ura');
             })
                 .catch(function (error) {
-                    console.log(error);
+                    // console.log(error);
                 });
+            this.fetchMessages();
         }
     },
     created()
     {
-        window.Echo.private('chat')
+        Echo.private('chat')
             .listen('MessageSent', (e) => {
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
+                // let obj = [];
+                // obj.message = e.message.message;
+                // obj.user = e.user;
+                // console.log(obj);
+                // this.messages = this.messages+obj;
+                // // this.messages.push({
+                // //     message: e.message.message,
+                // //     user: e.message.user_id,
+                // // });
+                this.fetchMessages();
             });
     }
 });
